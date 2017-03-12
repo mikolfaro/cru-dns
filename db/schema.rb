@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312085018) do
+ActiveRecord::Schema.define(version: 20170312103150) do
 
   create_table "records", force: :cascade do |t|
     t.string   "name",                        null: false
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20170312085018) do
     t.datetime "updated_at",                  null: false
     t.integer  "ttl_seconds", default: 28800, null: false
     t.boolean  "active",      default: false, null: false
+    t.integer  "priority"
   end
 
-  add_index "records", ["type", "name"], name: "index_records_on_type_and_name", unique: true
+  add_index "records", ["type", "name"], name: "index_records_on_type_and_name"
 
 end

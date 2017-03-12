@@ -1,0 +1,11 @@
+%tr
+  %td
+    = record.type_s
+  %td
+    = record.name
+  %td= record.value
+  %td
+    = record.ttl_seconds
+  %td= pretty_bool(record.active?)
+  %td -
+  %td

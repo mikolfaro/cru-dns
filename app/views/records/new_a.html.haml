@@ -16,6 +16,9 @@
           %tbody
             - @records.each do |record|
               = render record, record: record
+            -if @record
+              %tr
+                = render 'a_form', record: @record
 
       %section
         = link_to 'New A record', new_a_records_path, class: %w(btn btn-default)
