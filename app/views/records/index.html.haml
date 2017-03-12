@@ -18,7 +18,6 @@
               = render record, record: record
 
       %section
-        = link_to 'New A record', new_a_records_path, class: %w(btn btn-default)
-        = link_to 'New TXT record', new_txt_records_path, class: %w(btn btn-default)
+        = render 'new_buttons'
 
     %aside.col-md-3

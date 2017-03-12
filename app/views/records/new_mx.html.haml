@@ -2,7 +2,7 @@
   .row
     %main.col-md-9
       %header
-        %h1 Records#new_a
+        %h1 Records#new_mx
       %section
         %table.table
           %thead
@@ -18,7 +18,7 @@
               = render record, record: record
             -if @record
               %tr
-                = render 'a_form', record: @record
+                = render 'mx_form', record: @record
 
       %section
         =render 'new_buttons'
