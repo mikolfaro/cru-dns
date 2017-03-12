@@ -10,6 +10,7 @@
               %th{colspan: 2} Record
               %th Value
               %th TTL
+              %th Active
           %tbody
             - @records.each do |record|
               %tr
@@ -21,5 +22,6 @@
                 %td
                   = record.ttl_seconds
                   seconds
+                %td= pretty_bool(record.active?)
 
     %aside.col-md-3

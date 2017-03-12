@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Record::A.create! [
-                    {name: 'mikolfaro.eu', value: '79.137.73.217', ttl_seconds: 28800},
-                    {name: 'mail.mikolfaro.eu', value: '	79.137.73.217', ttl_seconds: 28800}
+                    {name: 'mikolfaro.eu', value: '79.137.73.217', ttl_seconds: 28800, active: true},
+                    {name: 'mail.mikolfaro.eu', value: '79.137.73.217', ttl_seconds: 28800, active: false}
                   ]
