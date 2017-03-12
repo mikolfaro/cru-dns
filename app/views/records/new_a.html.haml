@@ -30,15 +30,14 @@
                     .form-group
                       = f.label :value, class: 'sr-only'
                       = f.text_field :value, class: 'form-control', placeholder: 'Value'
-                      %p.help-block= @record.errors[:value]
                       = error_block @record, :value
                   %td
                     .form-group
                       = f.label :ttl_seconds, class: 'sr-only'
                       = f.number_field :ttl_seconds, class: 'form-control', placeholder: 'TTL (seconds)', min: 0, step: 60
-                      = error_block @record, :ttl
+                      = error_block @record, :ttl_seconds
                   %td
-                    .checkbox
+                    .form-group
                       = f.label :active, class: 'sr-only'
                       = f.check_box :active
                       = error_block @record, :active

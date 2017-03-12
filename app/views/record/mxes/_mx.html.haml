@@ -9,3 +9,5 @@
   %td= pretty_bool(record.active?)
   %td= record.priority
   %td
+    = link_to record_path(record), method: :delete, data: { confirm: 'Are you sure?' } do
+      = fa_icon 'delete'

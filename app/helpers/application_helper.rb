@@ -4,13 +4,14 @@ module ApplicationHelper
   end
 
   def error_block(model, field)
-    errors = model.errors[field]
-    return '' if errors.empty?
+    messages = model.errors.full_messages_for(field)
 
-    p_tags = errors.full_messages.map do |msg|
-      content_tag p, msg, class: 'help-block'
+    p_tags = messages.map do |msg|
+      content_tag :p, class: 'help-block' do
+        msg.capitalize
+      end
     end
 
-    p_tags.join
+    p_tags.join.html_safe
   end
 end
