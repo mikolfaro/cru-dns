@@ -4,15 +4,36 @@ class RecordsController < ApplicationController
   def index
   end
 
-  def new_a
-    @record = Record::A.new
+  [Record::A, Record::MX].each do |record_class|
+    type = record_class.type_s.downcase
+    define_method "new_#{type}" do
+      @record = record_class.new
+    end
   end
 
-  def new_mx
-    @record = Record::MX.new
+  def create
+    @record = record_class.new record_params
+
+    respond_to do |format|
+      if @record.save
+        format.html { redirect_to records_path, notice: 'Record created' }
+        format.json { render :show, status: :created }
+      else
+        format.html { render "new_#{@record.type_s}" }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
+
+  def record_class
+    Record::A
+  end
+
+  def record_params
+
+  end
 
   def set_records
     @records = Record.all
