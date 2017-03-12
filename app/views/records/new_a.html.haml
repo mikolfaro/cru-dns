@@ -4,7 +4,7 @@
       %header
         %h1 Records#new_a
       %section
-        = form_for record, url: records_path(record) do |f|
+        = form_for @record, url: records_path(@record) do |f|
           %table.table
             %thead
               %tr
