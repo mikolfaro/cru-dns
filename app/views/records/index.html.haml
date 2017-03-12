@@ -7,14 +7,19 @@
         %table.table
           %thead
             %tr
-              %th Record
+              %th{colspan: 2} Record
               %th Value
               %th TTL
           %tbody
             - @records.each do |record|
               %tr
-                %td = record.name
                 %td
+                  = record.type_s
                 %td
+                  = record.name
+                %td= record.value
+                %td
+                  = record.ttl_seconds
+                  seconds
 
     %aside.col-md-3
