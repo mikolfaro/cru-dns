@@ -11,9 +11,10 @@
               %th Value
               %th TTL
           %tbody
-            %tr
-              %td
-              %td
-              %td
+            - @records.each do |record|
+              %tr
+                %td = record.name
+                %td
+                %td
 
     %aside.col-md-3

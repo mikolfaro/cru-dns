@@ -8,6 +8,6 @@ class CreateRecordBases < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    # create_index :records, [:type, :name], unique: true
+    add_index :records, [:type, :name], unique: true
   end
 end
