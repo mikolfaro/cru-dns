@@ -15,3 +15,7 @@ railways.cache
 
 # DBs
 db/*.sqlite3
+
+#
+*.swp
+

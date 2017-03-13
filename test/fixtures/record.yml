@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  type: 
-  value: MyString
+a_record:
+  name: 'mikolfaro.eu'
+  type: 'Record::A'
+  value: '1.2.3.4'
 
-two:
-  name: MyString
-  type: 
-  value: MyString
+mx_record:
+  name: 'mail.mikolfaro.eu'
+  type: 'Record::MX'
+  value: 'mail.gmail.com'
+
