@@ -1,0 +1,23 @@
+.container.main-container
+  .row
+    %main.col-md-9
+      %header
+        %h1 Records#index
+      %section
+        %table.table
+          %thead
+            %tr
+              %th{colspan: 2} Record
+              %th Value
+              %th TTL (seconds)
+              %th Active
+              %th Priority
+              %th
+          %tbody
+            - @records.each do |record|
+              = render record, record: record
+
+      %section
+        = render 'new_buttons'
+
+    %aside.col-md-3

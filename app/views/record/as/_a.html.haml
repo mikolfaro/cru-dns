@@ -1,0 +1,13 @@
+%tr
+  %td
+    = record.type_s
+  %td
+    = record.name
+  %td= record.value
+  %td
+    = record.ttl_seconds
+  %td= pretty_bool(record.active?)
+  %td -
+  %td
+    = link_to record_path(record), method: :delete, data: { confirm: 'Are you sure?' } do
+      %i.fa.fa-delete
