@@ -28,13 +28,8 @@ class RecordsController < ApplicationController
   private
 
   def record_class
-    if params.has_key? :record_a
-      Record::A
-    elsif params.has_key? :record_mx
-      Record::MX
-    else
-      raise UnpermittedParameters, 'Invalid record type'
-    end
+    return Record::MX if params.has_key? :record_mx
+    Record::A
   end
 
   def record_params
