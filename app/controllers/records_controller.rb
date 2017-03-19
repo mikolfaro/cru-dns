@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_records
+  before_action :set_current_record, only: :update
 
   def index
   end
@@ -25,6 +26,18 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @record.update(record_params)
+        format.html { redirect_to records_path, notice: 'Record update' }
+        format.json { render :show, status: :ok }
+      else
+        format.html { render :edit }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def record_class
@@ -38,5 +51,9 @@ class RecordsController < ApplicationController
 
   def set_records
     @records = Record.all
+  end
+
+  def set_current_record
+    @record = Record.find(params[:id])
   end
 end
