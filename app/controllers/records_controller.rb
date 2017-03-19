@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_records
-  before_action :set_current_record, only: :update
+  before_action :set_current_record, only: [:update, :destroy]
 
   def index
   end
@@ -29,12 +29,20 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to records_path, notice: 'Record update' }
+        format.html { redirect_to records_path, notice: 'Record updated' }
         format.json { render :show, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @record.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @record.destroy
+    respond_to do |format|
+      format.html { redirect_to records_path, notice: 'Record deleted' }
+      format.json { head :no_content }
     end
   end
 
