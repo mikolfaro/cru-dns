@@ -9,5 +9,13 @@
   %td= pretty_bool(record.active?)
   %td -
   %td
-    = link_to record_path(record), method: :delete, data: { confirm: 'Are you sure?' } do
-      %i.fa.fa-delete
+    = link_to record_edit_a_path(record) do
+      = fa_icon 'pencil'
+
+    &nbsp;
+
+    = link_to record_path(record),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'text-danger' do
+      = fa_icon 'trash-o'

@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_records
+  before_action :set_current_record, only: [:edit_a, :edit_mx, :update, :destroy]
 
   def index
   end
@@ -8,6 +9,9 @@ class RecordsController < ApplicationController
     type = record_class.type_s.downcase
     define_method "new_#{type}" do
       @record = record_class.new
+    end
+
+    define_method "edit_#{type}" do
     end
   end
 
@@ -25,6 +29,26 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @record.update(record_params)
+        format.html { redirect_to records_path, notice: 'Record updated' }
+        format.json { render :show, status: :ok }
+      else
+        format.html { render :edit }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @record.destroy
+    respond_to do |format|
+      format.html { redirect_to records_path, notice: 'Record deleted' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def record_class
@@ -38,5 +62,10 @@ class RecordsController < ApplicationController
 
   def set_records
     @records = Record.all
+  end
+
+  def set_current_record
+    id = params[:id] || params[:record_id]
+    @record = Record.find(id)
   end
 end
