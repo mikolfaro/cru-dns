@@ -9,7 +9,7 @@
   %td= pretty_bool(record.active?)
   %td= record.priority
   %td
-    = link_to edit_record_path(record) do
+    = link_to record_edit_mx_path(record) do
       = fa_icon 'pencil'
 
     &nbsp;

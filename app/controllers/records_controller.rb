@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_records
-  before_action :set_current_record, only: [:update, :destroy]
+  before_action :set_current_record, only: [:edit_a, :edit_mx, :update, :destroy]
 
   def index
   end
@@ -9,6 +9,9 @@ class RecordsController < ApplicationController
     type = record_class.type_s.downcase
     define_method "new_#{type}" do
       @record = record_class.new
+    end
+
+    define_method "edit_#{type}" do
     end
   end
 
@@ -62,6 +65,7 @@ class RecordsController < ApplicationController
   end
 
   def set_current_record
-    @record = Record.find(params[:id])
+    id = params[:id] || params[:record_id]
+    @record = Record.find(id)
   end
 end
