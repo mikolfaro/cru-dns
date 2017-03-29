@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../../config/application', __FILE__)
+
+require_relative '../app/models/record'
+require_relative '../app/models/record/a'
+require_relative '../app/models/record/mx'
+require_relative '../lib/cru_dns/server'
+
+server = CruDns::Server.new(listen: [[:udp, '127.0.0.1', 2346]])
+server.run
+
+sleep

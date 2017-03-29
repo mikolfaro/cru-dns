@@ -47,3 +47,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'annotate'
 
 gem 'haml'
+
+gem 'celluloid-dns'
+
+group :test do
+  gem 'database_cleaner'
+end
