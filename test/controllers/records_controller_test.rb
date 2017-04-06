@@ -8,9 +8,11 @@ class RecordsControllerTest < ActionController::TestCase
 
   test 'should create A record' do
     assert_difference 'Record.count', 1 do
-      post :create, format: :json, record_a: {
-        name: 'www.example.eu',
-        value: '123.123.123.123'
+      post :create, format: :json, params: {
+        record_a: {
+          name: 'www.example.eu',
+          value: '123.123.123.123'
+        }
       }
     end
 
@@ -19,10 +21,12 @@ class RecordsControllerTest < ActionController::TestCase
 
   test 'should create MX record' do
     assert_difference 'Record.count', 1 do
-      post :create, format: :json, record_mx: {
-        name: 'www.example.eu',
-        value: '123.123.123.123',
-        priority: 0
+      post :create, format: :json, params: {
+        record_mx: {
+          name: 'www.example.eu',
+          value: '123.123.123.123',
+          priority: 0
+        }
       }
     end
 
@@ -32,8 +36,11 @@ class RecordsControllerTest < ActionController::TestCase
   test 'should update record' do
     @record = create(:record_mx)
 
-    put :update, format: :json, id: @record.id, record_mx: {
-      priority: 100
+    put :update, format: :json, params: {
+      id: @record.id,
+      record_mx: {
+        priority: 100
+      }
     }
 
     assert_response :ok
@@ -44,7 +51,9 @@ class RecordsControllerTest < ActionController::TestCase
     @record = create(:record_a)
 
     assert_difference 'Record.count', -1 do
-      delete :destroy, format: :json, id: @record.id
+      delete :destroy, format: :json, params: {
+        id: @record.id
+      }
     end
 
     assert_response :success

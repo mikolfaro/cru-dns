@@ -1,4 +1,4 @@
-class Record < ActiveRecord::Base
+class Record < ApplicationRecord
   self.table_name = 'records'
 
   validates_presence_of :name, :value
