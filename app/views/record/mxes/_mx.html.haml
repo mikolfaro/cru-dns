@@ -1,21 +1,22 @@
-%tr
-  %td
-    = record.type_s
-  %td
-    = record.name
-  %td= record.value
-  %td
-    = record.ttl_seconds
-  %td= pretty_bool(record.active?)
-  %td= record.priority
-  %td
-    = link_to edit_record_mx_path(record) do
-      = fa_icon 'pencil'
+= cache record do
+  %tr
+    %td
+      = record.type_s
+    %td
+      = record.name
+    %td= record.value
+    %td
+      = record.ttl_seconds
+    %td= pretty_bool(record.active?)
+    %td= record.priority
+    %td
+      = link_to edit_record_mx_path(record) do
+        = fa_icon 'pencil'
 
-    &nbsp;
+      &nbsp;
 
-    = link_to record_path(record),
-              method: :delete,
-              data: { confirm: 'Are you sure?' },
-              class: 'text-danger' do
-      = fa_icon 'trash-o'
+      = link_to record_path(record),
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'text-danger' do
+        = fa_icon 'trash-o'
