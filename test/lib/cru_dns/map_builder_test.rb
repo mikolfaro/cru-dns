@@ -8,6 +8,7 @@ module CruDns
 
       @a = create :record_a
       @mx = create :record_mx
+      create :inactive_record
     end
 
     test 'A record is created correctly' do
@@ -24,6 +25,11 @@ module CruDns
       assert map.key? 'MX'
       assert map['MX'].key? @mx.name
       assert_equal [@mx.value, @mx.priority], map['MX']['example.com']
+    end
+
+    test 'inactive records are not loaded' do
+      map = @builder.call
+      assert_not map['A'].key? 'inactive.org'
     end
   end
 end
