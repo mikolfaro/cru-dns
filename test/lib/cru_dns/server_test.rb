@@ -6,7 +6,7 @@ require 'cru_dns/server'
 
 module CruDns
   class ServerTest < ActiveSupport::TestCase
-    self.use_transactional_fixtures = false
+    self.use_transactional_tests = false
     DatabaseCleaner.strategy = :truncation
     Celluloid.logger = Rails.logger
 
