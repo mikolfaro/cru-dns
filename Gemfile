@@ -55,3 +55,4 @@ group :test do
 end
 
 gem 'redis-rails', '~> 5.0'
+gem 'redis-objects'
