@@ -1,0 +1,20 @@
+= form_for @record do |f|
+
+  %div.form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  %div.form-group
+    = f.label :value
+    = f.text_field :value, class: 'form-control'
+
+  %div.form-group
+    = f.label :ttl_seconds
+    = f.number_field :ttl_seconds, min: 0, step: 60, class: 'form-control'
+
+  %div.checkbox
+    = f.label :active do
+      = f.check_box :active
+      Active
+
+  = f.submit 'Save', class: 'btn btn-default'

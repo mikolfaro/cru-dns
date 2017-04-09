@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,19 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312103150) do
+ActiveRecord::Schema.define(version: 20170409123458) do
 
-  create_table "records", force: :cascade do |t|
-    t.string   "name",                        null: false
-    t.string   "type",                        null: false
-    t.string   "value",                       null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "ttl_seconds", default: 28800, null: false
-    t.boolean  "active",      default: false, null: false
-    t.integer  "priority"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "record_as", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "value"
+    t.integer  "ttl_seconds"
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "records", ["type", "name"], name: "index_records_on_type_and_name"
+  create_table "record_mxes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "value"
+    t.integer  "priority"
+    t.integer  "ttl_seconds"
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end

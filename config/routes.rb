@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     collection do
       get 'new_a', to: 'records#new_a'
       get 'new_mx', to: 'records#new_mx'
-    end
 
-    get 'edit_a', to: 'records#edit_a'
-    get 'edit_mx', to: 'records#edit_mx'
+      resources :record_as, except: :index, path: 'a'
+      resources :record_mxes, except: :index, path: 'mx'
+    end
   end
 end
