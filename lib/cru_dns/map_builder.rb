@@ -15,7 +15,10 @@ module CruDns
 
     def self.load_mx_records
       Record::MX.active.map do |mx_record|
-        [mx_record.name, [mx_record.value, mx_record.priority]]
+        [mx_record.name, [
+          mx_record.priority,
+          mx_record.value.split('.')
+        ]]
       end.to_h
     end
   end

@@ -24,7 +24,7 @@ module CruDns
 
       assert map.key? 'MX'
       assert map['MX'].key? @mx.name
-      assert_equal [@mx.value, @mx.priority], map['MX']['example.com']
+      assert_equal [@mx.priority, @mx.value.split('.')], map['MX']['example.com']
     end
 
     test 'inactive records are not loaded' do
