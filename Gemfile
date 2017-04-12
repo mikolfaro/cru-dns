@@ -53,3 +53,6 @@ gem 'celluloid-dns'
 group :test do
   gem 'database_cleaner'
 end
+
+gem 'redis-rails', '~> 5.0'
+gem 'redis-objects'
