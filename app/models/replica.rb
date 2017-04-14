@@ -1,0 +1,2 @@
+class Replica < ApplicationRecord
+end

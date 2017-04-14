@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0'
+gem 'puma'
 # Use jdbcsqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -48,7 +49,10 @@ gem 'annotate'
 
 gem 'haml'
 
-gem 'celluloid-dns'
+gem 'celluloid', require: false
+gem 'celluloid-io', require: false
+gem 'celluloid-dns', require: false
+gem 'celluloid-websocket-client', require: false
 
 group :test do
   gem 'database_cleaner'

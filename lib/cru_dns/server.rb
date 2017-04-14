@@ -1,10 +1,11 @@
 require 'cru_dns/map_builder'
+require 'cru_dns/sync_client'
 
 module CruDns
   class Server < Celluloid::DNS::Server
     def initialize(*args)
       super
-      ensure_connection
+      ensure_connections
       @record_map = MapBuilder.call
     end
 
@@ -38,9 +39,11 @@ module CruDns
       resource_class.name.split('::')[-1]
     end
 
-    def ensure_connection
+    def ensure_connections
       db_settings = Rails.configuration.database_configuration[Rails.env]
       ActiveRecord::Base.establish_connection db_settings
+
+      @sync_client ||= SyncClient.new
     end
   end
 end

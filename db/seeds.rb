@@ -21,3 +21,8 @@ Record::MX.create! [
                        ttl_seconds: 28800, active: true, priority: 100
                      }
                    ]
+
+Replica.create! {
+                  ip: '127.0.0.1',
+                  api_token: 'secret_token'
+                }
