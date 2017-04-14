@@ -18,5 +18,9 @@ railways.cache
 db/*.sqlite3
 db/*.sqlite3-journal
 
-#
+# VIM
 *.swp
+
+# RubyMine/IntelliJ IDEA
+/.idea
+/*.iml
