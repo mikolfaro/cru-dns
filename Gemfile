@@ -53,11 +53,6 @@ gem 'annotate'
 
 gem 'haml'
 
-gem 'celluloid', require: false
-gem 'celluloid-io', require: false
-gem 'celluloid-dns', require: false
-gem 'celluloid-websocket-client', require: false
-
 group :test do
   gem 'database_cleaner'
 end
