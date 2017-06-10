@@ -22,7 +22,5 @@ Record::MX.create! [
                      }
                    ]
 
-Replica.create! {
-                  ip: '127.0.0.1',
-                  api_token: 'secret_token'
-                }
+Replica.create! ip: '127.0.0.1',
+                api_token: 'secret_token'

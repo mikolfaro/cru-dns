@@ -12,15 +12,19 @@ default: &default
 
 development:
   <<: *default
-  database: cru_dns_development
+  database: cru_dns_api_development
+  host: db
+  user: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: cru_dns_test
+  database: cru_dns_api_test
+  host: db
+  user: postgres
 
 production:
   <<: *default
-  database: cru_dns_production
+  database: cru_dns_api_production
